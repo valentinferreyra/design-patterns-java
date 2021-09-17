@@ -37,8 +37,8 @@ public class Multioperador {
 		
 		int resultado = 0;
 		
-		for(int numero : getArrayDeEnteros()) {
-			resultado += numero;
+		for(int i = 0; i < getArrayDeEnteros().size(); i++) {
+			resultado += arrayDeEnteros.get(i);
 		}
 		return resultado;
 	}
@@ -51,11 +51,11 @@ public class Multioperador {
 		int resultado = getArrayDeEnteros().get(0); // paso el primer número del array para no incilizarlo en 0
 		this.arrayDeEnteros.remove(0);              // elimino el primer número del array
 		
-		for(int numero : getArrayDeEnteros()) {
-			resultado -= numero;
+		for(int i = 0; i < getArrayDeEnteros().size(); i++) {
+			resultado -= arrayDeEnteros.get(i);
 		}
 		return resultado;
-	}
+}
 	
 	public int multiplicarNumeros() {
 		/**
@@ -66,8 +66,8 @@ public class Multioperador {
 		int resultado = getArrayDeEnteros().get(0); // se inicializa el resultado con el primer número del array
 		this.arrayDeEnteros.remove(0);
 		
-		for(int numero : getArrayDeEnteros()) {
-			resultado = resultado * numero;
+		for(int i = 0; i < getArrayDeEnteros().size(); i++) { // o for(numero : getArrayDeEnteros())?
+			resultado = resultado * arrayDeEnteros.get(i);
 		}
 		return resultado;
 	}
