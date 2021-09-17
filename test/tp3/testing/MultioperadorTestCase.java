@@ -25,7 +25,7 @@ class MultioperadorTestCase {
 	public void testMultioperadorSuma() {
 		Multioperador mul = new Multioperador(arrayDeEnteros);
 		int amount = mul.sumarNumeros();
-	    assertEquals(amount, 35);
+		assertEquals(amount, 35);
 	}
 	
 	@Test
