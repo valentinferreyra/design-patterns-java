@@ -17,6 +17,9 @@ public class Counter {
 	}
 	
 	public void addNumber(int number) { 
+		/**
+		 * @param number es un número que será agregado al array
+		 */
 		getNumbers().add(number);
 	}
 	

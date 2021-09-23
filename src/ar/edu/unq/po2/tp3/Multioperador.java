@@ -8,7 +8,7 @@ public class Multioperador {
 	
 	public Multioperador(List<Integer> array) {
 		/**
-		 * param array = una lista de enteros 
+		 * @param array = una lista de enteros 
 		 */
 		
 		this.arrayDeEnteros = array;
