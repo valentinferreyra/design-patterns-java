@@ -2,18 +2,17 @@ package ar.edu.unq.po2.tp3;
 
 import java.time.LocalDate;
 import java.time.Period;
-import java.time.format.DateTimeFormatter;
 
 public class Persona {
 
 	private String nombre;
 	private String apellido;
-	private String fechaNacimiento;
+	private LocalDate fechaNacimiento;
 	
 	public Persona() {
 	}
 	
-	public Persona(String nombre, String apellido, String fechaNacimiento) {
+	public Persona(String nombre, String apellido, LocalDate fechaNacimiento) {
 		
 		this.nombre          = nombre;
 		this.apellido 		 = apellido;
@@ -24,16 +23,14 @@ public class Persona {
 		return this.nombre;
 	}
 	
-	public String getFechaNacimiento() {
+	public LocalDate getFechaNacimiento() {
 		return this.fechaNacimiento;
 	}
 	
 	public int getEdad() {
-		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		LocalDate fechaNac = LocalDate.parse(this.fechaNacimiento, fmt);
 		LocalDate ahora = LocalDate.now();
 		
-		Period periodo = Period.between(fechaNac, ahora);
+		Period periodo = Period.between(this.fechaNacimiento, ahora);
 		
 		return periodo.getYears();
 	}

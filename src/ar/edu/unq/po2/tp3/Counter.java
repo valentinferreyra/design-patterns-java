@@ -63,6 +63,11 @@ public class Counter {
 		return ocurrences;
 	}
 	
+//	public int numeroConMayorCantidadDePares(ArrayList<Integer> numeros) {
+//		
+//		
+//	}
+	
 	public int numeroMasAltoMultiploDe(int x, int y) {
 		/**
 		 * Dado dos int x,y retorna el número más alto entre 0 y 1000 que sea múltiplo de esos dos números

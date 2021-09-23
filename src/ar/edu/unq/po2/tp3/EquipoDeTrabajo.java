@@ -25,14 +25,12 @@ public class EquipoDeTrabajo {
 	public float promedioEdad() {
 		
 		int totalEdades = 0;
-		float promedioTotal;
-		int cantDePersonas = this.personas.size();
 		
 		for(Persona persona : this.personas) {
 			totalEdades += persona.getEdad();
 		}
 		
-		promedioTotal = (totalEdades / cantDePersonas);
-		return promedioTotal;
+		return totalEdades / this.personas.size();
+		
 	}
 }
