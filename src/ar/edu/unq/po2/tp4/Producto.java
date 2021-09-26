@@ -3,10 +3,10 @@ package ar.edu.unq.po2.tp4;
 public class Producto {
 	
 	private String nombre;
-	private double precio;
+	private Double precio;
 	private boolean esPrecioCuidado = false;
 	
-	public Producto(String nombre, double precio) {
+	public Producto(String nombre, Double precio) {
 		/**
 		 * Constructor de producto
 		 * @param nombre: indica el nombre del producto
@@ -17,7 +17,7 @@ public class Producto {
 		this.setPrecio(precio);
 	}	
 	
-	public Producto(String nombre, double precio, boolean esPC) {
+	public Producto(String nombre, Double precio, boolean esPC) {
 		/**
 		 * Constructor de producto
 		 * @param nombre: indica el nombre del producto
@@ -34,7 +34,7 @@ public class Producto {
 		this.nombre = nombre;
 	}
 	
-	private void setPrecio(double precio) {
+	private void setPrecio(Double precio) {
 		this.precio = precio;
 	}
 	
@@ -54,7 +54,7 @@ public class Producto {
 		return this.esPrecioCuidado;
 	}
 
-	public void aumentarPrecio(double precioAumento) {
+	public void aumentarPrecio(Double precioAumento) {
 		double nuevoPrecio = this.precio + precioAumento;
 		this.setPrecio(nuevoPrecio);
 	}
