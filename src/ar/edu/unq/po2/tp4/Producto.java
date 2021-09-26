@@ -55,6 +55,10 @@ public class Producto {
 	}
 
 	public void aumentarPrecio(Double precioAumento) {
+		/**
+		 * Aumenta el precio del producto en la cantidad dada
+		 * @param precioAumento es el valor que se incrementará el precio del producto
+		 */
 		double nuevoPrecio = this.precio + precioAumento;
 		this.setPrecio(nuevoPrecio);
 	}
