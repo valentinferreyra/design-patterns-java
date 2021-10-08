@@ -9,6 +9,10 @@ public class Agencia {
 	private String nombre;
 	
 	public Agencia(String nombre) {
+		/**
+		 * @param nombre: String que representa el nombre de la agencia
+		 *                a crear
+		 */
 		this.setNombre(nombre);
 		this.inicializarFacturas();
 	}
@@ -18,10 +22,17 @@ public class Agencia {
 	}
 	
 	private void inicializarFacturas() {
+		/**
+		 * Método que se utiliza para inicializar el array de facturas cuando
+		 * se crea una Agencia
+		 */
 		this.facturasPagas = new ArrayList<Integer>();
 	}
 	
 	private void agregarPagoDe(int codigoFactura) {
+		/**
+		 * @param codigoFactura: representa el número de una factura
+		 */
 		this.facturasPagas.add(codigoFactura);
 	}
 	
@@ -39,6 +50,10 @@ public class Agencia {
 	}
 	
 	public boolean recibioElPagoDe(Factura factura) {
+		/**
+		 * Dada una factura, retorna el resultado de evaluar si la factura 
+		 * fue pagada
+		 */
 		int codigoFactura = factura.codigoFactura();
 		
 		while(facturasPagas.size() != 0 && 

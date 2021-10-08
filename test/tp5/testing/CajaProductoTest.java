@@ -37,6 +37,9 @@ class CajaProductoTest {
 	
 	@Test 
 	public void cajaCobraProductoTest() {
+		/**
+		 * Se evalúa que la caja pueda cobrar de a un producto solo
+		 */
 		double totalAPagar = caja.cobrar(arroz);
 		
 		assertEquals(totalAPagar, 90f);		
@@ -44,6 +47,9 @@ class CajaProductoTest {
 	
 	@Test
 	public void cajaCobraProductosTest() {
+		/**
+		 * Se evalúa que la caja pueda cobrar de a muchos productos
+		 */
 		List<Pagable> pagables = Arrays.asList(arroz, leche);
 		double totalAPagar = caja.cobrar(pagables);
 		
