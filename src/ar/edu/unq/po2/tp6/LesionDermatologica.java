@@ -20,17 +20,14 @@ public enum LesionDermatologica {
 	}
 	
 	public LesionDermatologica getProximoColor() {
-		int proximoIndice; 
 		
 		LesionDermatologica[] lesiones = LesionDermatologica.values();
-		int indice = this.ordinal();
+		int proximoIndice = this.ordinal() + 1;
 		
-		if ((indice + 1) > (lesiones.length - 1)) { // resto 1 porque inicia en 0
+		if (proximoIndice > (lesiones.length - 1)) { // resto 1 porque inicia en 0
 			proximoIndice = 0;
-		} else { 
-			proximoIndice = indice + 1;
-		}
-	
+		} 
+		
 		return lesiones[proximoIndice];
 	}
 }
