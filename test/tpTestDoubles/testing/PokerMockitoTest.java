@@ -2,6 +2,9 @@ package tpTestDoubles.testing;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
 import java.util.List;
@@ -21,7 +24,7 @@ import ar.edu.unq.po2.tpsolid.CreditoPersonal;
 import ar.edu.unq.po2.tpsolid.PropiedadInmobiliaria;
 import ar.edu.unq.po2.tpsolid.SolicitudCredito;
 
-class pokerMockito {
+class PokerMockitoTest {
 	
 	PokerStatusConCarta pokerStatus;
 	Carta carta1;
@@ -34,7 +37,7 @@ class pokerMockito {
 	@BeforeEach
 	public void setUp() throws Exception {
 		
-		this.pokerStatus = mock(PokerStatusConCarta.class);
+		this.pokerStatus = (PokerStatusConCarta.class);
 		
 		this.carta1 = new Carta(NumeroDeCarta.DOS, ColorDeCarta.CORAZONES);
 		this.carta2 = new Carta(NumeroDeCarta.K, ColorDeCarta.PICAS);
@@ -46,8 +49,12 @@ class pokerMockito {
 	
 	@Test
 	public void testUnPokerStatusTienePoquer() {
-		when(pokerStatus.hayPoker()).thenReturn(true);
+		when(pokerStatus.verificar(carta1, carta2, carta3, carta4, carta5)).thenReturn("Poquer");
+		
+		verify(pokerStatus, never()).hayTrio();
 	}
+	
+	//hacer
 	
 	
 
