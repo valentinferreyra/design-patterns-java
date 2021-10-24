@@ -1,7 +1,7 @@
 package ar.edu.unq.po2.tpTestDoubles;
 
 public enum NumeroDeCarta {	
-	UNO, DOS, TRES, CUATRO, CINCO, SEIS, SIETE, OCHO, NUEVE, DIEZ, K, Q, J;
+	DOS, TRES, CUATRO, CINCO, SEIS, SIETE, OCHO, NUEVE, DIEZ, J, Q, K, A;
 
 	boolean esMayorQue(NumeroDeCarta numero) {
 		return this.ordinal() > numero.ordinal();

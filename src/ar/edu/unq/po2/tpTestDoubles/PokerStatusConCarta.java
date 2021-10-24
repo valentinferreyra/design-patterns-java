@@ -1,6 +1,5 @@
 package ar.edu.unq.po2.tpTestDoubles;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -8,9 +7,11 @@ public class PokerStatusConCarta {
 	
 	List<Carta> cartas;
 	
-	public String verificar(Carta carta1, Carta carta2, Carta carta3, Carta carta4, Carta carta5) {
+	public String verificar(List<Carta> cartas) {
 		
-		List<Carta> cartas = Arrays.asList(carta1, carta2, carta3, carta4, carta5);
+		Carta carta1 = cartas.get(0);
+		Carta carta2 = cartas.get(1);
+		Carta carta3 = cartas.get(2);
 		
 		List<Carta> igualesAC1 =  cartas.stream().
 				                  filter(carta -> this.esMismoNumero(carta1, carta)).

@@ -24,7 +24,7 @@ import ar.edu.unq.po2.tpsolid.CreditoPersonal;
 import ar.edu.unq.po2.tpsolid.PropiedadInmobiliaria;
 import ar.edu.unq.po2.tpsolid.SolicitudCredito;
 
-class PokerMockitoTest {
+class PoquerMockitoTest {
 	
 	PokerStatusConCarta pokerStatus;
 	Carta carta1;
