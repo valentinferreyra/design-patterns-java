@@ -43,9 +43,9 @@ public class Directory implements FileSystem {
 
 	@Override
 	public void printStructure() {
-		for(FileSystem child : children) {
-			System.out.println( " " + child.printStructure() );
-		}
+//		for(FileSystem child : children) {
+//			System.out.println( " " + child.printStructure() );
+//		}
 	}
 
 	@Override
