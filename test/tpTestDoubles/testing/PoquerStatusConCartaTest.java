@@ -2,6 +2,8 @@ package tpTestDoubles.testing;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Arrays;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -33,7 +35,7 @@ class PoquerStatusConCartaTest {
 		this.carta3 = new Carta(NumeroDeCarta.DOS, ColorDeCarta.TREBOLES);
 		this.carta4 = new Carta(NumeroDeCarta.DOS, ColorDeCarta.DIAMANTES);
 		this.carta5 = new Carta(NumeroDeCarta.Q, ColorDeCarta.CORAZONES);
-		this.carta6 = new Carta(NumeroDeCarta.UNO, ColorDeCarta.CORAZONES);
+		this.carta6 = new Carta(NumeroDeCarta.A, ColorDeCarta.CORAZONES);
 		this.carta7 = new Carta(NumeroDeCarta.OCHO, ColorDeCarta.CORAZONES);
 		this.carta8 = new Carta(NumeroDeCarta.NUEVE, ColorDeCarta.CORAZONES);
 		this.carta9 = new Carta(NumeroDeCarta.SEIS, ColorDeCarta.PICAS);
@@ -46,7 +48,7 @@ class PoquerStatusConCartaTest {
 		 * Se testea que en una mano de Poquer, si al menos 4 cartas tienen el mismo
 		 * número, debe devolver el String "Poquer"
 		 */
-		assertEquals(pokerStatus.verificar(carta1, carta2, carta3, carta4, carta5), "Poquer");
+		assertEquals(pokerStatus.verificar(Arrays.asList(carta1, carta2, carta3, carta4, carta5)), "Poquer");
 	}
 	
 	@Test
@@ -55,7 +57,7 @@ class PoquerStatusConCartaTest {
 		 * Se testea que en una mano de Poquer, si al menos 3 cartas tienen el mismo
 		 * número, debe devolver el String "Trio"
 		 */
-		assertEquals(pokerStatus.verificar(carta1, carta2, carta3, carta5, carta6), "Trio");
+		assertEquals(pokerStatus.verificar(Arrays.asList(carta1, carta2, carta3, carta5, carta6)), "Trio");
 	}
 	
 	@Test
@@ -64,7 +66,7 @@ class PoquerStatusConCartaTest {
 		 * Se testea que en una mano de Poquer, si las 5 cartas tienen el mismo
 		 * color, debe devolver el String "Color"
 		 */
-		assertEquals(pokerStatus.verificar(carta1, carta5, carta6, carta7, carta8), "Color");
+		assertEquals(pokerStatus.verificar(Arrays.asList(carta1, carta5, carta6, carta7, carta8)), "Color");
 	}
 	
 	@Test
@@ -73,7 +75,7 @@ class PoquerStatusConCartaTest {
 		 *Se testea que si en una mano de Poquer, las cartas no tienen ni Poquer,
 		 *ni Trio ni Color, se devuelve el String "Nada"
 		 */
-		assertEquals(pokerStatus.verificar(carta1, carta2, carta5, carta9, carta10), "Nada");
+		assertEquals(pokerStatus.verificar(Arrays.asList(carta1, carta2, carta5, carta9, carta10)), "Nada");
 	}
 
 }

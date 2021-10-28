@@ -25,7 +25,7 @@ class CartaTest {
 		this.carta3 = new Carta(NumeroDeCarta.CINCO, ColorDeCarta.TREBOLES);
 		this.carta4 = new Carta(NumeroDeCarta.OCHO, ColorDeCarta.DIAMANTES);
 		this.carta5 = new Carta(NumeroDeCarta.Q, ColorDeCarta.CORAZONES);
-		this.carta6 = new Carta(NumeroDeCarta.UNO, ColorDeCarta.CORAZONES);
+		this.carta6 = new Carta(NumeroDeCarta.A, ColorDeCarta.CORAZONES);
 	}
 	
 	@Test

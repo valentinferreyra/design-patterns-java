@@ -1,18 +1,13 @@
 package tpTestDoubles.testing;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 import ar.edu.unq.po2.tpTestDoubles.Carta;
 import ar.edu.unq.po2.tpTestDoubles.ColorDeCarta;
 import ar.edu.unq.po2.tpTestDoubles.Jugada;
 import ar.edu.unq.po2.tpTestDoubles.NumeroDeCarta;
-import ar.edu.unq.po2.tpTestDoubles.PokerStatusConCarta;
 
 class JugadasDePoquerTest {
 	Jugada miJugada;
@@ -46,14 +41,14 @@ class JugadasDePoquerTest {
 		
 		miJugada = new Jugada(cartas1, cartas2);
 	}
-	
-	@Test
-	public void testUnaJugadaDePoquePuedeDetectarAlGanador() {
-		/**
-		 * La mano de cartas1 tiene poquer, mientras que cartas2 solo tiene trio,
-		 * por lo tanto, el ganador debe ser cartas1
-		 */
-		
-		assertEquals(miJugada.ganador(), cartas1);		
-	}
+//	
+//	@Test
+//	public void testUnaJugadaDePoquePuedeDetectarAlGanador() {
+//		/**
+//		 * La mano de cartas1 tiene poquer, mientras que cartas2 solo tiene trio,
+//		 * por lo tanto, el ganador debe ser cartas1
+//		 */
+//		
+//		assertEquals(miJugada.ganador(), cartas1);		
+//	}
 }

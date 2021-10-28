@@ -34,26 +34,26 @@ class PoquerMockitoTest {
 	Carta carta5;
 	Carta carta6;
 	
-	@BeforeEach
-	public void setUp() throws Exception {
-		
-		this.pokerStatus = (PokerStatusConCarta.class);
-		
-		this.carta1 = new Carta(NumeroDeCarta.DOS, ColorDeCarta.CORAZONES);
-		this.carta2 = new Carta(NumeroDeCarta.K, ColorDeCarta.PICAS);
-		this.carta3 = new Carta(NumeroDeCarta.CINCO, ColorDeCarta.TREBOLES);
-		this.carta4 = new Carta(NumeroDeCarta.OCHO, ColorDeCarta.DIAMANTES);
-		this.carta5 = new Carta(NumeroDeCarta.Q, ColorDeCarta.CORAZONES);
-		this.carta6 = new Carta(NumeroDeCarta.UNO, ColorDeCarta.CORAZONES);
-	}
-	
-	@Test
-	public void testUnPokerStatusTienePoquer() {
-		when(pokerStatus.verificar(carta1, carta2, carta3, carta4, carta5)).thenReturn("Poquer");
-		
-		verify(pokerStatus, never()).hayTrio();
-	}
-	
+//	@BeforeEach
+//	public void setUp() throws Exception {
+//		
+//		this.pokerStatus = (PokerStatusConCarta.class);
+//		
+//		this.carta1 = new Carta(NumeroDeCarta.DOS, ColorDeCarta.CORAZONES);
+//		this.carta2 = new Carta(NumeroDeCarta.K, ColorDeCarta.PICAS);
+//		this.carta3 = new Carta(NumeroDeCarta.CINCO, ColorDeCarta.TREBOLES);
+//		this.carta4 = new Carta(NumeroDeCarta.OCHO, ColorDeCarta.DIAMANTES);
+//		this.carta5 = new Carta(NumeroDeCarta.Q, ColorDeCarta.CORAZONES);
+//		this.carta6 = new Carta(NumeroDeCarta.A, ColorDeCarta.CORAZONES);
+//	}
+//	
+//	@Test
+//	public void testUnPokerStatusTienePoquer() {
+//		when(pokerStatus.verificar(carta1, carta2, carta3, carta4, carta5)).thenReturn("Poquer");
+//		
+//		verify(pokerStatus, never()).hayTrio();
+//	}
+//	
 	//hacer
 	
 	
