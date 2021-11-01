@@ -51,9 +51,12 @@ public class Directory implements FileSystem {
 	@Override
 	public LocalDate lastModified() {
 		
-//		FileSystem fistFile = children.get(0);
-//		
-//		if(firstFile.lastModified().)
+//		for(FileSystem child : children) {
+//			/*
+//			 * Debe hacer una función para que devuelva el último
+//			 * modificado y compararlo con el primero, siguiendo la recursión
+//			 */
+//		}
 		
 		return null;
 	
@@ -61,7 +64,14 @@ public class Directory implements FileSystem {
 
 	@Override
 	public File oldestElement() {
-//		// TODO Auto-generated method stub
+//		
+//		for(FileSystem child : children) {
+//		/*
+//		 * Debe hacer una función para que devuelva el archivo
+//		 * más viejo y compararlo con el primero, siguiendo la recursión
+//		 */
+//	}
+	
 	return null;
 	}
 
