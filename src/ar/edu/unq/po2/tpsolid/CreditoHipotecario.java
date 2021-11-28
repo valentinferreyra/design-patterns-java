@@ -20,14 +20,24 @@ public class CreditoHipotecario extends SolicitudCredito {
 	}
 
 	@Override
-	public boolean esSolicitudAceptable() {
-		
-		int añosDePago = this.getPlazoEnMeses() / 12;
-		double valorFiscalPorcentuado = this.getPropiedadInmobiliaria().getValorFiscal() * 0.70;
+	public boolean esSolicitudAceptable() {	
+		return  laCuotaMnesualNoSuperaALosIngresos()  
+			&&	montoSolicitadoNoSuperaAlValorFiscal()
+			&&	laEdadDeLaPersonaNoSupera65CuandoFinaliza();
+	}
+
+	private boolean laCuotaMnesualNoSuperaALosIngresos() {
 		double ingresosMensualesPorcentuado = this.getCliente().getSueldoNetoMensual() * 0.50;
-		
-		return  (this.getMontoCuotaMensual() <= ingresosMensualesPorcentuado)  
-			&&	(this.getMontoSolicitado() <= valorFiscalPorcentuado)
-			&&	((this.getCliente().getEdad() + añosDePago) < 65);
+		return this.getMontoCuotaMensual() <= ingresosMensualesPorcentuado;
+	}
+
+	private boolean montoSolicitadoNoSuperaAlValorFiscal() {
+		double valorFiscalPorcentuado = this.getPropiedadInmobiliaria().getValorFiscal() * 0.70;
+		return this.getMontoSolicitado() <= valorFiscalPorcentuado;
+	}
+
+	private boolean laEdadDeLaPersonaNoSupera65CuandoFinaliza() {
+		int añosDePago = this.getPlazoEnMeses() / 12;
+		return (this.getCliente().getEdad() + añosDePago) < 65;
 	}
 }

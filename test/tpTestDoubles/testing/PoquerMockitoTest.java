@@ -2,27 +2,16 @@ package tpTestDoubles.testing;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
-import java.util.List;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import ar.edu.unq.po2.tpTestDoubles.Carta;
 import ar.edu.unq.po2.tpTestDoubles.ColorDeCarta;
 import ar.edu.unq.po2.tpTestDoubles.NumeroDeCarta;
-import ar.edu.unq.po2.tpTestDoubles.PokerStatus;
 import ar.edu.unq.po2.tpTestDoubles.PokerStatusConCarta;
-import ar.edu.unq.po2.tpsolid.Banco;
-import ar.edu.unq.po2.tpsolid.Cliente;
-import ar.edu.unq.po2.tpsolid.CreditoHipotecario;
-import ar.edu.unq.po2.tpsolid.CreditoPersonal;
-import ar.edu.unq.po2.tpsolid.PropiedadInmobiliaria;
-import ar.edu.unq.po2.tpsolid.SolicitudCredito;
 
 class PoquerMockitoTest {
 	
@@ -32,30 +21,60 @@ class PoquerMockitoTest {
 	Carta carta3;
 	Carta carta4;
 	Carta carta5;
-	Carta carta6;
 	
-//	@BeforeEach
-//	public void setUp() throws Exception {
-//		
-//		this.pokerStatus = (PokerStatusConCarta.class);
-//		
-//		this.carta1 = new Carta(NumeroDeCarta.DOS, ColorDeCarta.CORAZONES);
-//		this.carta2 = new Carta(NumeroDeCarta.K, ColorDeCarta.PICAS);
-//		this.carta3 = new Carta(NumeroDeCarta.CINCO, ColorDeCarta.TREBOLES);
-//		this.carta4 = new Carta(NumeroDeCarta.OCHO, ColorDeCarta.DIAMANTES);
-//		this.carta5 = new Carta(NumeroDeCarta.Q, ColorDeCarta.CORAZONES);
-//		this.carta6 = new Carta(NumeroDeCarta.A, ColorDeCarta.CORAZONES);
-//	}
-//	
-//	@Test
-//	public void testUnPokerStatusTienePoquer() {
-//		when(pokerStatus.verificar(carta1, carta2, carta3, carta4, carta5)).thenReturn("Poquer");
-//		
-//		verify(pokerStatus, never()).hayTrio();
-//	}
-//	
-	//hacer
+	@BeforeEach
+	public void setUp() throws Exception {
+		
+		this.pokerStatus = new PokerStatusConCarta();
+		
+		this.carta1 = mock(Carta.class);
+		this.carta2 = mock(Carta.class);
+		this.carta3 = mock(Carta.class);
+		this.carta4 = mock(Carta.class);
+		this.carta5 = mock(Carta.class);
+	}
 	
+	@Test
+	public void testUnPokerStatusTienePoquer() {
+		when(carta1.getNumero()).thenReturn(NumeroDeCarta.TRES);
+		when(carta2.getNumero()).thenReturn(NumeroDeCarta.TRES);
+		when(carta3.getNumero()).thenReturn(NumeroDeCarta.DOS);
+		when(carta4.getNumero()).thenReturn(NumeroDeCarta.TRES);
+		when(carta5.getNumero()).thenReturn(NumeroDeCarta.TRES);
+		
+		assertEquals(pokerStatus.verificar(Arrays.asList(carta1, carta2, carta3, carta4, carta5)), "Poquer");		
+	}
 	
-
+	@Test
+	public void testUnPokerStatusTieneTrio() {
+		when(carta1.getNumero()).thenReturn(NumeroDeCarta.TRES);
+		when(carta2.getNumero()).thenReturn(NumeroDeCarta.TRES);
+		when(carta3.getNumero()).thenReturn(NumeroDeCarta.DOS);
+		when(carta4.getNumero()).thenReturn(NumeroDeCarta.SIETE);
+		when(carta5.getNumero()).thenReturn(NumeroDeCarta.TRES);
+		
+		assertEquals(pokerStatus.verificar(Arrays.asList(carta1, carta2, carta3, carta4, carta5)), "Trio");		
+	}
+	
+	@Test
+	public void testUnPokerStatusTieneColor() {
+		when(carta1.getColor()).thenReturn(ColorDeCarta.PICAS);
+		when(carta2.getColor()).thenReturn(ColorDeCarta.PICAS);
+		when(carta3.getColor()).thenReturn(ColorDeCarta.PICAS);
+		when(carta4.getColor()).thenReturn(ColorDeCarta.PICAS);
+		when(carta5.getColor()).thenReturn(ColorDeCarta.PICAS);
+		
+		assertEquals(pokerStatus.verificar(Arrays.asList(carta1, carta2, carta3, carta4, carta5)), "Color");				
+	}
+	
+	@Test
+	public void testUnPokerStatusNoTieneNada() {
+		when(carta1.getColor()).thenReturn(ColorDeCarta.PICAS);
+		when(carta2.getColor()).thenReturn(ColorDeCarta.PICAS);
+		when(carta3.getColor()).thenReturn(ColorDeCarta.DIAMANTES);
+		when(carta4.getColor()).thenReturn(ColorDeCarta.TREBOLES);
+		when(carta5.getColor()).thenReturn(ColorDeCarta.PICAS);
+		
+		assertEquals(pokerStatus.verificar(Arrays.asList(carta1, carta2, carta3, carta4, carta5)), "Nada");				
+	}
 }
