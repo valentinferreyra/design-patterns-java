@@ -1,0 +1,5 @@
+Cuenta - Bad Smells encontrados
+
+- CajaAhorro y CuentaCorriente tienen código repetido en el mentaje extraer. La solución es realizar push up al código que está repetido a la clase abstracta y que se delegue responsabilidad de cambiar el código que corresponde a cada subclase, en este caso, la condición de extracción, realizando así un Template Method en CuentaBancaria.
+
+
