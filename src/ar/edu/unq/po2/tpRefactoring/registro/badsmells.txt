@@ -1,0 +1,13 @@
+Registro - bad smells
+
+- Se realiza un Feature Envy en el mensaje debeRealizarVtv en 
+RegistroAutomotor; se envían constantemente mensajes al vehículo 
+para obtener datos de él, se debería agregar más atributos a Vehículo
+para evitar esto (y así corregir el bad smell del punto 3).
+- Métodos largos en el mensaje debeRealizarVtv en RegistroAutomotor; 
+lo mejor sería realizar Extract Methods para obtener mensajes más claros 
+y prolijos. Además, se agrega un comentario explicando el qué de ese método, lo
+cual también es un bad smell: es mejor que el propio método explique lo que hace,
+(a través de Extract Methods) y no agregar un comentario.
+- La clase Vehiculo es una Data Class, sólo tiene atributos, 
+getters y setters pero nada de comportamiento.
