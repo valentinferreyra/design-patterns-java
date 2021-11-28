@@ -72,9 +72,13 @@ public class ActividadSemanal {
 	public int getNivelDeComplejidad() {
 		return getDeporte().getComplejidad();
 	}
+
+	public boolean esDeComplejidad(int complejidad) {
+		return this.getNivelDeComplejidad() == complejidad;
+	}
 	
-//	@Override
-//	public String toString() {
-//		return "Deporte:" thsis.deporte + ' ' + "DIA:" + dia + "A LAS:" + horaInicio + "Duración:" + duracion / 60 + "hora(s)"
-//	}
+	@Override
+	public String toString() {
+		return "Deporte: " + deporte.toString() + ' ' + "DIA: " + dia.toString() + ' ' + "A LAS: " + horaInicio + ' ' + "Duración: " + (duracion / 60) + " hora(s)";
+	}
 }

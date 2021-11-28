@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,9 +26,9 @@ class SecretariaDeDeportesTest {
 	@BeforeEach
 	public void setUp() throws Exception {
 		
-		this.actividad1 = new ActividadSemanal(DiaDeLaSemana.LUNES, 17, 90, Deporte.FUTBOL);
+		this.actividad1 = new ActividadSemanal(DiaDeLaSemana.SABADO, 17, 90, Deporte.FUTBOL);
 		this.actividad2 = new ActividadSemanal(DiaDeLaSemana.JUEVES, 16, 120, Deporte.TENNIS);
-		this.actividad3 = new ActividadSemanal(DiaDeLaSemana.SABADO, 14, 90, Deporte.FUTBOL);
+		this.actividad3 = new ActividadSemanal(DiaDeLaSemana.LUNES, 14, 90, Deporte.FUTBOL);
 		this.actividad4 = new ActividadSemanal(DiaDeLaSemana.DOMINGO, 11, 120, Deporte.TENNIS);
 		this.actividad5 = new ActividadSemanal(DiaDeLaSemana.DOMINGO, 19, 120, Deporte.TENNIS);
 		
@@ -55,10 +56,26 @@ class SecretariaDeDeportesTest {
 	
 	@Test
 	public void testActSemanalDeMenorCosto() {
-		assertEquals(secretaria.actividadMenorCostoPara(Deporte.FUTBOL), actividad1); // actividad1 es lunes, actividad4 es domingo
+		assertEquals(secretaria.actividadMenorCostoPara(Deporte.FUTBOL), actividad3); // actividad3 es lunes, actividad1 es sabado
 		assertEquals(secretaria.actividadMenorCostoPara(Deporte.TENNIS), actividad2); // todas las actividades de tennis valen lo mismo, por lo tanto toma el primero
  	}
 	
+	@Test
+	public void testUnaSecretariaDeDeportesTieneUnMapConLosDeportes_YLaActividadMasEconomica() {
+		Map<Deporte, ActividadSemanal> mapEsperado = secretaria.actividadesMasEconomicas();
+		
+		assertEquals(mapEsperado.get(Deporte.FUTBOL), actividad3); // La actividad3 de futbol es más económico porque es un Lunes
+		assertEquals(mapEsperado.get(Deporte.TENNIS), actividad2); // todas las actividades de tennis valen lo mismo, por lo tanto toma el primero
+	}
 	
+	@Test
+	public void testUnaActividadSemanalPuedeImprimirseConSuInformacion() {
+		// System.out.println(actividad1.toString());
+	}
+	
+	@Test
+	public void testUnaSecretariaDeDeportesImprimeEnPantallaTodasSusActividadesConSuInformacion() {
+		secretaria.imprimirTodasLasActividades();
+	}
 
 }

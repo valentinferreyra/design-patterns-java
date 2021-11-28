@@ -1,7 +1,9 @@
 package ar.edu.unq.po2.tp6;
 
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class SecretariaDeDeportes {
@@ -28,7 +30,7 @@ public class SecretariaDeDeportes {
 	
 	public List<ActividadSemanal> getActividadesDeComplejidad(int complejidad) {
 		return this.getActividades().stream().
-			   filter(act -> act.getNivelDeComplejidad() == complejidad).
+			   filter(act -> act.esDeComplejidad(complejidad)).
 			   collect(Collectors.toList());
 	}
 	
@@ -47,8 +49,27 @@ public class SecretariaDeDeportes {
 		return filtroActividades.stream().min(Comparator.comparing(ActividadSemanal::costoActividad)).get();
 	}
 	
-//	public Map<Actividad, ActividadSemanal> actividadesMasEconomicas() {
-//		
-//	}
+	public Map<Deporte, ActividadSemanal> actividadesMasEconomicas() {
+		Map<Deporte, List<ActividadSemanal>> mapConLista = this.getActividades().stream().
+				   										   collect(Collectors.groupingBy(
+				   												   ActividadSemanal::getDeporte)); // Creo un map con lista de ActividadSemanal para agruparlos
+		
+		Map<Deporte, ActividadSemanal> map = new HashMap<Deporte, ActividadSemanal>();
+		
+		for(Deporte deporte : mapConLista.keySet()) {
+			ActividadSemanal masEconomica = mapConLista.get(deporte).stream().
+											min(Comparator.comparing(ActividadSemanal::costoActividad)).get();
+			
+			map.put(deporte, masEconomica);
+		}
+		
+		return map;
+	}
 
+	
+	public void imprimirTodasLasActividades() {
+		for(ActividadSemanal actividad : this.getActividades()) {
+			System.out.println(actividad.toString());
+		}
+	}
 }
