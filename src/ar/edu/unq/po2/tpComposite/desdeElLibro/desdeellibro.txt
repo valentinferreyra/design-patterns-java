@@ -1,0 +1,18 @@
+1- En la intención del patrón se indica que el cliente debe 
+poder tratar de manera uniforme tanto a objetos individuales 
+como compuestos. ¿ Cómo se logra esto con el patrón Composite?
+  Se logra esto haciendo que el cliente interactúe con la interfaz
+utilizada tanto como por el objeto individual como por el compuesto.
+
+2- Explique en qué casos aplicaría el patrón.
+  Se debe usar el patrón Composite cuando
+    - Querés representar la jerarquía de objetos como un todo
+    - Querés que los clientes puedan ignorar la diferencia entre un 
+objeto individual y un objeto compuesto. Los clientes tratarán a estos
+de forma uniforme
+
+3- Dentro de las consecuencias, se indica que los clientes deben
+mantenerse simples y no deben ser conscientes si están interactuando
+con un objeto hoja o una composición. ¿Qué elementos de la programación
+orientada a objetos hacen posible esto?
+  Una interfaz y una clase abstracta.
