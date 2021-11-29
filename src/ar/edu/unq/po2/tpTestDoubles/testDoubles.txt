@@ -1,0 +1,11 @@
+1- ¿Que son los test doubles?
+  Son objetos que simulan ser instancias de clases para que actúen como el test lo necesita. En el contexto que se quiere testear el SUT se puede hacer que sus dependencias asi como el DOC en general sean test doubles para poder abstraerse de esas dependencias. La gran ventaja de usar test doubles es que se logra mantener clases desacopladas y testear solamente el comportamiento del SUT aislando el codigo. 
+
+2-Enumere los tipos de test doubles y de ejemplos concretos de uso. Indique como usaría, cuando es posible, mockito para emular los diferentes tipos de tipos de test doubles.
+  - Dummy Object -> Se utiliza el objeto para que ocupe un lugar pero nunca es utilizado
+  - Test stub -> utilizado para controlar la ejecución de algunos caminos difíciles de lograr para
+                 inputs indirectos
+  - Test spy -> Toma registro de las salidas del SUT
+                Reemplaza a un DOC y escucha lo que manda el SUT
+  
+  - Mock object -> compara la entrada recibida con la que fue programada anteriormente. 

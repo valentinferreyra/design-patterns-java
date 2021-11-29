@@ -61,5 +61,4 @@ public class PokerStatusConCarta {
 	private boolean hayTrio(List<Carta> igualesAC1, List<Carta> igualesAC2, List<Carta> igualesAC3) {
 		return (igualesAC1.size() == 3) || (igualesAC2.size() == 3) || (igualesAC3.size() == 3);
 	}
-
 }
